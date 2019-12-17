@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const Login = () => {
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+
+const Login = props => {
     const [user, setUser] = useState({ username: '', password: '' })
     const [loading, setLoading] = useState(false)
 
@@ -10,7 +12,14 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setLoading(true)
+        setLoading(true);
+        axiosWithAuth()
+            .post('/login', user)
+            .then(res => {
+                localStorage.setItem('token', res.data.payload);
+                props.history.push('/protected');
+            })
+            .catch(err => console.log(err))
 
     }
 
@@ -30,8 +39,7 @@ const Login = () => {
                     value={user.password}
                     onChange={handleChange}
                 />
-                <button>Log in</button>
-                {/* {isFetching && 'logging in...'} */}
+                {loading ? 'logging in...' : <button>Log in</button>}
             </form>
         </div>
     )
