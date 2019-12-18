@@ -26,7 +26,8 @@ const AddFriendsForm = props => {
         })
     }
     return (
-        <div>
+        <div className='inputs'>
+            <h2>Add a New Friend: </h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'

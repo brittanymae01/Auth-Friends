@@ -5,7 +5,6 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const FriendsList = () => {
     const [friends, setFriends] = useState([]);
-    console.log(friends)
 
     useEffect(() => {
         axiosWithAuth()
@@ -19,13 +18,15 @@ const FriendsList = () => {
     return (
         <div>
             <AddFriendsForm setFriends={setFriends} />
-            {friends.map(friend => (
-                <div key={friend.id}>
-                    <h3>{friend.name}</h3>
-                    <p>{friend.age}</p>
-                    <p>{friend.email}</p>
-                </div>
-            ))}
+            <div className='container'>
+                {friends.map(friend => (
+                    <div className='friends' key={friend.id}>
+                        <h3>{friend.name}</h3>
+                        <p>{friend.age}</p>
+                        <p>{friend.email}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
