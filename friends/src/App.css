@@ -9,7 +9,7 @@ body {
 
 .friends {
   border: 1px solid rgb(52, 52, 104);
-  width: 25%;
+  width: 400px;
   margin: 40px;
   border-radius: 100px;
   background-color: rgb(179, 179, 196);

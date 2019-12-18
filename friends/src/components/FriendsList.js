@@ -21,9 +21,9 @@ const FriendsList = () => {
             <div className='container'>
                 {friends.map(friend => (
                     <div className='friends' key={friend.id}>
-                        <h3>{friend.name}</h3>
-                        <p>{friend.age}</p>
-                        <p>{friend.email}</p>
+                        <h2>{friend.name}</h2>
+                        <p>Age: {friend.age}</p>
+                        <p>Email: {friend.email}</p>
                     </div>
                 ))}
             </div>
