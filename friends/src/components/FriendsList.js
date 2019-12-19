@@ -8,7 +8,7 @@ const FriendsList = () => {
 
     useEffect(() => {
         axiosWithAuth()
-            .get('./friends')
+            .get('/friends')
             .then(res => {
                 setFriends(res.data)
             })
